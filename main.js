@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".btn-contact").addEventListener("click", () => {
     // Here you can add actual contact form functionality
     alert(
-      "Contact form would open here. You can integrate with your preferred form service."
+      "Contact form."
     );
   });
 
