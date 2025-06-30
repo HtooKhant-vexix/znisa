@@ -87,21 +87,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Only animate once
       }
     });
   }, observerOptions);
 
   // Observe elements for animation
-  document
-    .querySelectorAll(".process-step, .project-card, .testimonial-card")
-    .forEach((el) => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(30px)";
-      el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-      observer.observe(el);
-    });
+  document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+    observer.observe(el);
+  });
 
   // Button Click Effects
   document.querySelectorAll("button").forEach((button) => {
